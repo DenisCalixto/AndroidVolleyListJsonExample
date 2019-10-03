@@ -24,15 +24,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String url = "http://100.20.115.205/properties.json";
-    //private String url = "https://www.deniscalixtus.com/properties.json";
-    //private String url = "http://www.deniscalixtus.com/properties.json";
+//    private String url = "http://100.20.115.205/properties.json";
+    //private String url = "http://greenfillproject.com/api/jobs/";
+    private String url = "http://159.65.44.135/api/jobs.json";
+//    private String url = "https://gist.githubusercontent.com/aws1994/f583d54e5af8e56173492d3f60dd5ebf/raw/c7796ba51d5a0d37fc756cf0fd14e54434c547bc/anime.json";
+//    private String url = "http://151.101.52.133/aws1994/f583d54e5af8e56173492d3f60dd5ebf/raw/c7796ba51d5a0d37fc756cf0fd14e54434c547bc/anime.json";
 
     private RecyclerView mList;
 
     private LinearLayoutManager linearLayoutManager;
     private DividerItemDecoration dividerItemDecoration;
-    private List<Property> movieList;
+    private List<Property> propertyList;
     private RecyclerView.Adapter adapter;
 
     @Override
@@ -42,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         mList = findViewById(R.id.main_list);
 
-        movieList = new ArrayList<>();
-        adapter = new PropertyAdapter(getApplicationContext(),movieList);
+        propertyList = new ArrayList<>();
+        adapter = new PropertyAdapter(getApplicationContext(),propertyList);
 
         linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -69,13 +71,13 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = response.getJSONObject(i);
 
-                        Property movie = new Property();
-                        movie.setTitle(jsonObject.getString("title"));
-                        movie.setRating(jsonObject.getInt("rating"));
-                        movie.setYear(jsonObject.getInt("releaseYear"));
+                        Property property = new Property();
+                        property.setSummary(jsonObject.getString("summary"));
+                        property.setId(jsonObject.getInt("id"));
 
-                        movieList.add(movie);
+                        propertyList.add(property);
                     } catch (JSONException e) {
+                        Log.d("Test", "Calling FAB");
                         e.printStackTrace();
                         progressDialog.dismiss();
                     }

@@ -27,11 +27,11 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Property movie = list.get(position);
+        Property property = list.get(position);
 
-        holder.textTitle.setText(movie.getTitle());
-        holder.textRating.setText(String.valueOf(movie.getRating()));
-        holder.textYear.setText(String.valueOf(movie.getYear()));
+        holder.textSummary.setText(property.getSummary());
+        holder.textRating.setText(String.valueOf(property.getRating()));
+        holder.textId.setText(String.valueOf(property.getId()));
 
     }
 
@@ -41,14 +41,14 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textTitle, textRating, textYear;
+        public TextView textSummary, textRating, textId;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            textTitle = itemView.findViewById(R.id.main_title);
+            textSummary = itemView.findViewById(R.id.main_summary);
             textRating = itemView.findViewById(R.id.main_rating);
-            textYear = itemView.findViewById(R.id.main_year);
+            textId = itemView.findViewById(R.id.main_id);
         }
     }
 

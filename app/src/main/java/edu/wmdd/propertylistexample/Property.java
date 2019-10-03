@@ -2,26 +2,26 @@ package edu.wmdd.propertylistexample;
 
 public class Property {
 
-    public String title;
+    public String summary;
     public int rating;
-    public int year;
+    public int id;
 
     public Property() {
 
     }
 
-    public Property(String title, int rating, int year) {
-        this.title = title;
+    public Property(String summary, int rating, int id) {
+        this.summary = summary;
         this.rating = rating;
-        this.year = year;
+        this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getSummary() {
+        return summary;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public int getRating() {
@@ -32,11 +32,11 @@ public class Property {
         this.rating = rating;
     }
 
-    public int getYear() {
-        return year;
+    public int getId() {
+        return id;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setId(int id) {
+        this.id = id;
     }
 }
