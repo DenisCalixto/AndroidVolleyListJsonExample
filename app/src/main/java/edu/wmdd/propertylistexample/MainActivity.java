@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         Property property = new Property();
                         property.setSummary(jsonObject.getString("summary"));
                         property.setId(jsonObject.getInt("id"));
+                        property.setImage_url(jsonObject.getString("image"));
 
                         propertyList.add(property);
                     } catch (JSONException e) {

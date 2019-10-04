@@ -3,17 +3,17 @@ package edu.wmdd.propertylistexample;
 public class Property {
 
     public String summary;
-    public int rating;
     public int id;
+    private String image_url;
 
     public Property() {
 
     }
 
-    public Property(String summary, int rating, int id) {
+    public Property(String summary, int id, String image_url) {
         this.summary = summary;
-        this.rating = rating;
         this.id = id;
+        this.image_url = image_url;
     }
 
     public String getSummary() {
@@ -24,12 +24,8 @@ public class Property {
         this.summary = summary;
     }
 
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
+    public String getImage_url() {
+        return image_url;
     }
 
     public int getId() {
@@ -38,5 +34,9 @@ public class Property {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 }
